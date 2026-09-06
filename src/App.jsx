@@ -7,27 +7,32 @@ import Navbar from './Navbar/navbar'
 import Home from './Pages/home'
 import Pricing from './Pages/Pricing'
 import About from './Pages/About'
+import { Route,Routes } from 'react-router-dom'
 
 function App() {
   // const [count, setCount] = useState(0)
-  let Component 
-   switch(window.location.pathname){
-    case "/":
-      Component=Home
-      break
-      case "/pricing":
-        Component=Pricing
-        break
-        case "/about":
-          Component=About
-          break
-   }
+  // let Component 
+  //  switch(window.location.pathname){
+  //   case "/":
+  //     Component=Home
+  //     break
+  //     case "/pricing":
+  //       Component=Pricing
+  //       break
+  //       case "/about":
+  //         Component=About
+  //         break
+  //  }
 
   return (
     <>
       <Navbar />
       <div className="cont">
-        <Component />
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/pricing' element={<Pricing/>}/>
+          <Route path='/about' element={<About/>}/>
+        </Routes>
       </div>
 
       {/* <section id="center">

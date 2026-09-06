@@ -1,17 +1,19 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar(){
     return (
       <>
         <div className="container">
           <nav className="nav">
-            <a href="/" className="logo">
+            <Link to="/" className="logo">
               Title
-            </a>
+            </Link>
             <ul className="list">
               
-                <CustomLink href="/about">one</CustomLink>
+                <CustomLink to="/about">one</CustomLink>
               
               
-                <CustomLink href="/pricing">two</CustomLink>
+                <CustomLink to="/pricing">two</CustomLink>
               
             </ul>
           </nav>
@@ -20,12 +22,12 @@ export default function Navbar(){
     );
 }
 
-function CustomLink({href,children,...props}){
+function CustomLink({to,children,...props}){
     const path = window.location.pathname;
   return (
     <>
-      <li className={path===href?"active":""}>
-        <a href={href}>{children}</a>
+      <li className={path===to?"active":""}>
+        <Link to={to}>{children}</Link>
       </li>
     </>
   );
